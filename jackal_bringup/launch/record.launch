@@ -1,0 +1,11 @@
+<!-- Similar to David C. Conner's Turtlebot version at gitlab. chris_ros_turtlebot/*bringup/*.launch -->
+<launch>
+  <arg name="robot_namespace"	default="jackal"/>
+
+  <group ns="$(arg robot_namespace)">
+
+    <node pkg="rosbag" type="record" name="$(arg robot_namespace)_record" respawn="true" output="screen"
+      args="-a -o $(arg robot_namespace) --split --duration=5m" />
+  </group>
+
+</launch>
